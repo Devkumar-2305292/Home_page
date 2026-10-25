@@ -1,95 +1,139 @@
-📊 Sorting Algorithm Visualizer
-A Python-based application that visually demonstrates how different sorting algorithms work using animated bar charts. This project helps understand the internal working of sorting algorithms by displaying each intermediate step during the sorting process.
+# 📊 Sorting Algorithm Visualizer
 
-🚀 Features
-Visualizes sorting algorithms in real time.
-Randomly generates an unsorted array.
-User can choose the sorting algorithm.
-Smooth animation using Matplotlib.
-Step-by-step visualization implemented using Python generators.
-🛠️ Technologies Used
-Python 3.x
-Matplotlib
-Random Module
-📂 Project Structure
+A Python-based application that visualizes sorting algorithms through animated bar charts. Watch how elements move and change at each step to understand how different sorting algorithms work.
+
+## ✨ Features
+
+- 📈 **Real-Time Visualization** — Watch sorting algorithms operate through animated bar charts.
+- 🔀 **Random Array Generation** — Generate random unsorted arrays of a user-defined size.
+- 🎯 **Multiple Algorithms** — Choose from five popular sorting algorithms.
+- 🎞️ **Smooth Animations** — Visualize intermediate sorting states using Matplotlib.
+- ⚙️ **Python Generators** — Use `yield` to expose intermediate states of the sorting process.
+- 🧩 **Modular Design** — Keep algorithm implementations, visualization, and program execution in separate files.
+
+## 🛠️ Technologies Used
+
+- **Python 3.x**
+- **Matplotlib** — Bar charts and animations
+- **Random Module** — Random array generation
+- **Generators (`yield`)** — Step-by-step algorithm visualization
+- **FuncAnimation** — Updating the chart during animation
+
+## 🧮 Algorithms Implemented
+
+| Algorithm | Best Case | Average Case | Worst Case | Auxiliary Space |
+|---|---|---|---|---|
+| Bubble Sort | O(n)* | O(n²) | O(n²) | O(1) |
+| Selection Sort | O(n²) | O(n²) | O(n²) | O(1) |
+| Insertion Sort | O(n) | O(n²) | O(n²) | O(1) |
+| Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
+| Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n)* |
+
+*Complexities depend on implementation. Bubble Sort has O(n) best-case time when optimized with an early-exit check. Quick Sort's auxiliary space is typically O(log n) on average but can reach O(n) in the worst case due to recursion.*
+
+## 📁 Project Structure
+
+```text
 Sorting-Algorithm-Visualizer/
-│
-├── algorithms.py      # Sorting algorithm implementations
-├── vizualizer.py      # Visualization using Matplotlib
-├── main.py            # Main driver program
-└── README.md
-📌 Implemented Algorithms
-Bubble Sort
-Selection Sort
-Insertion Sort
-Merge Sort
-Quick Sort
-⚙️ Installation
-1. Clone the repository
-git clone https://github.com/your-username/Sorting-Algorithm-Visualizer.git
-2. Navigate to the project
+├── algorithms.py       # Sorting algorithm implementations
+├── vizualizer.py       # Matplotlib visualization and animation
+├── main.py             # Main program and user interaction
+└── README.md            # Project documentation
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.x
+- pip package manager
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Sorting-Algorithm-Visualizer.git
 cd Sorting-Algorithm-Visualizer
-3. Install dependencies
+```
+
+Replace `YOUR_USERNAME` with your GitHub username.
+
+### 2. Install Dependencies
+
+```bash
 pip install matplotlib
-▶️ Running the Project
-Execute the main file.
+```
 
+### 3. Run the Application
+
+```bash
 python main.py
-You will be prompted to enter:
+```
 
-Enter array size:
-Then choose the sorting algorithm:
+## 🖥️ How to Use
 
+1. Run the application.
+2. Enter the desired array size when prompted.
+3. Select a sorting algorithm from the menu.
+4. Watch the animated bar chart as the algorithm sorts the array.
+
+### Available Algorithms
+
+```text
 1. Bubble Sort
 2. Selection Sort
 3. Insertion Sort
 4. Merge Sort
 5. Quick Sort
-A visualization window will open displaying the sorting process.
+```
 
-📸 Working
-User enters the desired array size.
-A random array is generated.
-User selects a sorting algorithm.
-The selected algorithm sorts the array.
-Every intermediate state is animated using Matplotlib.
-💡 How It Works
-Each sorting algorithm is implemented as a Python Generator.
+## ⚙️ How It Works
 
-Instead of returning the sorted array directly, the algorithm yields the array after every important modification.
+The application separates sorting logic from visualization.
 
-Example:
+1. **Array Generation:** A random unsorted array is generated based on the requested size.
+2. **Algorithm Selection:** The user chooses a sorting algorithm.
+3. **Step-by-Step Execution:** Sorting algorithms use Python generators to yield intermediate array states.
+4. **Animation:** Matplotlib's `FuncAnimation` consumes the yielded states and updates the bar heights.
+5. **Visualization:** The animated chart displays the array's progression toward sorted order.
 
+### Example: Python Generators
+
+Instead of returning only the final sorted array, a generator can yield intermediate states:
+
+```python
 yield a
-Matplotlib's FuncAnimation consumes these yielded states and updates the heights of the bars to create a smooth animation.
+```
 
-📈 Time Complexities
-Algorithm	Best	Average	Worst	Space
-Bubble Sort	O(n)	O(n²)	O(n²)	O(1)
-Selection Sort	O(n²)	O(n²)	O(n²)	O(1)
-Insertion Sort	O(n)	O(n²)	O(n²)	O(1)
-Merge Sort	O(n log n)	O(n log n)	O(n log n)	O(n)
-Quick Sort	O(n log n)	O(n log n)	O(n²)	O(log n)
-🎯 Learning Objectives
-This project helps understand:
+Each yielded state can be used by the visualization to display the next step in the sorting process.
 
-Sorting algorithm logic
-Time complexity comparison
-Python generators (yield)
-Data visualization with Matplotlib
-Animation using FuncAnimation
-Modular programming in Python
-🔮 Future Enhancements
-Adjustable animation speed.
-Pause and Resume functionality.
-Color comparison between sorted and unsorted elements.
-Add Heap Sort.
-Add Counting Sort.
-Add Radix Sort.
-Compare two algorithms simultaneously.
-GUI using Tkinter or PyQt.
-Display real-time statistics (comparisons and swaps).
-👨‍💻 Author
-Dev Kumar
+## 🎯 Learning Objectives
 
-If you found this project helpful, feel free to ⭐ the repository.
+This project demonstrates:
+
+- Sorting algorithm implementation and comparison
+- Time and space complexity analysis
+- Python generators and the `yield` keyword
+- Data visualization using Matplotlib
+- Animation with `FuncAnimation`
+- Modular programming and separation of concerns
+
+## 🔮 Future Improvements
+
+- Adjustable animation speed
+- Pause and resume controls
+- Color-coded comparisons, swaps, and sorted elements
+- Additional algorithms, including Heap Sort, Counting Sort, and Radix Sort
+- Side-by-side comparison of sorting algorithms
+- GUI support using Tkinter or PyQt
+- Real-time statistics for comparisons and swaps
+
+## 👨‍💻 Author
+
+**Dev Kumar**
+
+- GitHub: [YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+- LinkedIn: [Dev Kumar](https://www.linkedin.com/in/dev-kumar-0578402aa)
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star.
